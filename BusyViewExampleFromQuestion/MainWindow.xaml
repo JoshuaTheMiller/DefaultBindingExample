@@ -1,0 +1,42 @@
+﻿<Window x:Class="BusyViewExampleFromQuestion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BusyViewExampleFromQuestion"
+        mc:Ignorable="d"
+        Title="Busy Tests" 
+        Height="350" 
+        Width="525"
+        d:DataContext="{d:DesignData d:Type=MainWindowViewModel}">
+    <DockPanel>
+        <GroupBox Header="Explicit Binding"
+                  Background="AliceBlue"
+                  DockPanel.Dock="Left">
+            <DockPanel>
+                <CheckBox DockPanel.Dock="Top" 
+                          Content="Check me to make this panel 'Busy'"
+                          IsChecked="{Binding ExplicitBusy}"/>
+                <local:BusyView IsBusy="{Binding ExplicitBusy}">
+                    <CheckBox Content="Try checking me when the panel is busy."
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Center"/>
+                </local:BusyView>
+            </DockPanel>
+        </GroupBox>
+        <GroupBox Header="Implicit Binding"
+                  Background="Coral"
+                  DockPanel.Dock="Right">
+            <DockPanel>
+                <CheckBox DockPanel.Dock="Top" 
+                          Content="Check me to make this panel 'Busy'"
+                          IsChecked="{Binding Busy}"/>
+                <local:BusyView>
+                    <CheckBox Content="Try checking me when the panel is busy."
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Center"/>
+                </local:BusyView>
+            </DockPanel>
+        </GroupBox>
+    </DockPanel>
+</Window>

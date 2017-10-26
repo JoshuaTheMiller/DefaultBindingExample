@@ -1,0 +1,24 @@
+﻿<Window x:Class="ExplicitVsImplicitBindingExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Automagically Bind" Height="100" Width="325">
+    <StackPanel Orientation="Horizontal">
+        <GroupBox Header="Excplicit Binding">
+            <StackPanel>
+                <TextBlock x:Name="ImDefinitelyHere" 
+                   Text="Look ma, explicit binding!"/>
+                <Button Content="{Binding Text, ElementName=ImDefinitelyHere}"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Imcplicit Binding">
+            <StackPanel>
+                <TextBlock x:Name="MaybeIllBeHere" 
+                           Text="Look ma, implicit binding!"/>
+                <Button />
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
+</Window>
